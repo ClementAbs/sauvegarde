@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+<head> 
+<title>Les API JavaScript du Html5</title> 
+<meta charset=utf-8> 
+<style> 
+div { margin-bottom: 3px;} 
+span { border: 1px solid silver; 
+       padding-left: 4px; 
+       padding-right: 4px;} 
+#bouton { margin-top: 12px; 
+          margin-left: 60px;} 
+</style> 
+<script type="text/javascript"> 
+function localiser(position) { 
+var latitude = position.coords.latitude; 
+var longitude = position.coords.longitude; 
+document.getElementById("latitude").innerHTML = latitude; 
+document.getElementById("longitude").innerHTML = longitude; 
+} 
+function getLocalisation(){ 
+if(navigator.geolocation){ 
+navigator.geolocation.getCurrentPosition(localiser); 
+} 
+else { 
+alert("Désolé, votre navigateur ne supporte pas la géolocalisation"); 
+} 
+} 
+</script> 
+</head> 
+<body> 
+<form> 
+<h2>Html5 géolocalisation</h2> 
+<div>Latitude : <span id="latitude">En attente...</span></div> 
+<div>Longitude : <span id="longitude">En attente...</span></div> 
+<input type="button" id="bouton" onclick="getLocalisation();" value="Géolocaliser"> 
+</form> 
+</body> 
+</html>

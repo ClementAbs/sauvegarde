@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+<head> 
+<title>Les API JavaScript du Html5</title> 
+<meta charset=utf-8> 
+<style type="text/css"> 
+#box { border: 1px dotted navy; 
+       padding-left: 5px; 
+       background-color: rgb(195,215,235); 
+       width: 330px;} 
+p { margin-top: 5px; 
+    margin-bottom: 5px;} 
+</style> 
+<script type="text/javascript"> 
+function dosetItem() { 
+var name = document.getElementById("nom").value; 
+var data = document.getElementById("mobile").value; 
+localStorage.setItem(name, data); 
+document.getElementById("nom").value=""; 
+document.getElementById("mobile").value=""; 
+} 
+</script> 
+</head> 
+<body> 
+<header> 
+<h3>Mes contacts</h3> 
+</header> 
+<section> 
+<form> 
+<div id="box"> 
+<p> 
+<label for="nom">Nom :</label> 
+<input id="nom" name="nom" size="30" placeholder="Le nom" 
+style="margin-left: 15px;"> 
+</p> 
+<p> 
+<label for="mobile">Mobile :</label> 
+<input id="mobile" name="mobile" size="30" placeholder="Le numéro 
+de mobile"> 
+</p> 
+<p> 
+<input type="button" value="setItem()" onclick="dosetItem()"> 
+</p>      
+</div> 
+</form> 
+</section> 
+<div id="valeur">
+</div>
+<script>
+for(i=0;i < localStorage.length; i++){
+	key = localStorage.key(i);
+	value = localStorage.getItem(key);
+	document.getElementById("valeur").innerHTML += key + " " + value + "<br/>" ;
+}	
+</script>
+</body> 
+</html>
